@@ -10,10 +10,12 @@ router = APIRouter(tags=["Weight"])
 
 @router.get("/weight-all/", response_model=weight_schema.BinWeight)
 def get_all_weights(db: Session = Depends(database.get_db)):
+    #TODO: Fix the response of timestamp because it has a "T" "2015-11-04T15:06:25" because of the __str__ of datetime
     return weight_controller.get_all_weights(db)
 
 @router.get("/weight/", response_model=weight_schema.BinWeight)
 def get_weight(bin_id : int, start_timestamp : datetime, end_timestamp : datetime, db : Session = Depends(database.get_db)):
+    #TODO: Error checking of start_timestamp and end_timestamp
     return weight_controller.get_weight(bin_id, start_timestamp, end_timestamp, db)
 
 @router.post("/weight/", status_code=status.HTTP_201_CREATED, response_model=schema.Message, 

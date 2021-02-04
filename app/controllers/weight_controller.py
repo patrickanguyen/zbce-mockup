@@ -21,7 +21,7 @@ def add_weight(weights : weight_schema.BinWeight, db : Session):
         if weight_services.check_bin_id(weight, db):
             weight_services.weight_add(weight, db)
         else:
-            return JSONResponse(status_code=404, content={"message" : "Invalid bin_id"})
+            return JSONResponse(status_code=status.HTTP_404_NOT_FOUND, content={"message" : "Invalid bin_id"})
     # If all weights are succesfully added, return success message
     return {"message" : "Successfully posted weight"}
 
