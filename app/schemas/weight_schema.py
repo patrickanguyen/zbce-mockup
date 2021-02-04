@@ -2,16 +2,19 @@ from pydantic import BaseModel
 from typing import List
 from datetime import datetime
 
-class WeightBase(BaseModel):
+class Weight(BaseModel):
     bin_id : int 
-
-class WeightIn(WeightBase):
-    start_timestamp : datetime
-    end_timestamp : datetime
-
-class Weight(WeightBase):
     bin_weight : float 
-    timestamp : datetime 
+    timestamp : datetime
+
+    class Config:
+        schema_extra = {
+            "example": {
+                "timestamp": "2015-11-04 15:06:25",
+                "bin_weight": 25,
+                "bin_id": 1
+                }
+        }
 
 class BinWeight(BaseModel):
     data : List[Weight]

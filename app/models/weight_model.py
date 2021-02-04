@@ -1,5 +1,5 @@
 from sqlalchemy import Column, Integer, String, DateTime, ForeignKey, Float
-from ..database import database
+from ..services import database
 
 class BinWeight(database.Base):
     __tablename__ = "weight"
