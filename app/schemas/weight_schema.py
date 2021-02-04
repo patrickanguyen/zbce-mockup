@@ -9,10 +9,12 @@ class WeightIn(WeightBase):
     start_timestamp : datetime
     end_timestamp : datetime
 
-class Weight(BaseModel):
-    bin_id : int
+class Weight(WeightBase):
     bin_weight : float 
     timestamp : datetime 
 
 class BinWeight(BaseModel):
     data : List[Weight]
+
+    class Config:
+        orm_mode = True
