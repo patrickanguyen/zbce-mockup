@@ -1,6 +1,6 @@
 # ZBCE FastAPI REST API Mockup
 
-A REALLY basic REST API to illustrate the basic features of FastAPI. Only weight endpoints are implemented.
+A REALLY basic AND quickly written REST API to illustrate the basic features of FastAPI. Only weight endpoints are implemented.
 
 ## Basic Features
 - Modularizable file structure
